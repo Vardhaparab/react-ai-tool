@@ -47,7 +47,7 @@ const App = () => {
     const payLoadData = question ? question : selectedHistory;
 
     const payload = { prompt: payLoadData }; 
-let response = await fetch("generate", {
+let response = await fetch("/api/generate", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(payload)
