@@ -18,7 +18,7 @@ function RecentSearch({ clearHistory, recentHistory, setSelectedHistory, setRece
         className="md:hidden fixed top-5 left-4 z-50 bg-zinc-300 dark:bg-zinc-700 text-black dark:text-white px-3 py-1 rounded-md shadow"
         onClick={() => setOpen(!open)}
       >
-        Recent Search
+        Recent search
       </button>
 
       <div
