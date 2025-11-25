@@ -115,9 +115,9 @@ response = await response.json();
     <div className={DarkMode == 'dark' ? 'dark' : 'light'}>
       <div className='grid grid-cols-1 h-screen text-center md:grid-cols-5  '>
         <select onChange={(e) => setDarkMode(e.target.value)}
-          className='fixed top-4 right-4 z-50 bg-white dark:bg-zinc-800 p-2 rounded-md shadow-md text-gray-600 dark:text-gray-300'>
+          className='fixed top-4 right-4 z-50 bg-gray-300 dark:bg-zinc-700 shadow-gray-500 dark:shadow-zinc-600 p-2 rounded-md shadow-md text-gray-600 dark:text-gray-300'>
           <option value="dark" className='text-black'>Dark</option>
-          <option value="light" className='text-black'>Light</option>
+          <option value="light" className='text-white'>Light</option>
         </select>
 
         <RecentSearch clearHistory={clearHistory} recentHistory={recentHistory} setRecentHistory={setRecentHistory} setSelectedHistory={setSelectedHistory} />
@@ -139,8 +139,8 @@ response = await response.json();
           )}
 
 
-          <div ref={scrollToAns} className='flex-grow  overflow-auto dark:bg-black bg-white '>
-            <div className=' text-black dark:text-gray-400 p-10 '>
+          <div ref={scrollToAns} className='flex-grow  overflow-auto dark:bg-black bg-white text-black dark:text-gray-400 p-10 '>
+            
               <ul>
                 <QuestionAnswer result={result} Answers={Answers} />
 
@@ -154,11 +154,11 @@ response = await response.json();
             </ul>
              */}
 
-            </div>
+       
           </div>
 
           <div
-            className='sticky bottom-28  dark:bg-zinc-800 sm:w-1/2 max-w-xl text-black dark:text-zinc-400 m-auto w-1/2 p-4 pl-7 pr-7 rounded-full flex justify-between border-black dark:border-zinc-700 border-2'>
+            className='sticky bottom-10  dark:bg-zinc-800 sm:w-1/2 max-w-xl text-black dark:text-zinc-400 m-auto w-1/2 p-4 pl-7 pr-7 rounded-full flex justify-between border-black dark:border-zinc-700 border-2'>
 
             <input
               onKeyDown={isEnter}
