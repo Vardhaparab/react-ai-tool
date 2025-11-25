@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { ArrowUp, Trash2 } from 'lucide-react'
-import { URL } from './constants'
 import Answers from './Components/Answers';
 import { useRef } from 'react';
 import RecentSearch from './Components/RecentSearch';
@@ -47,20 +46,15 @@ const App = () => {
 
     const payLoadData = question ? question : selectedHistory;
 
-    const payload = {
-      "contents": [{
-        "parts": [{ "text": payLoadData }]
-      }]
-    }
+    const payload = { prompt: payLoadData }; 
+let response = await fetch("generate", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payload)
+});
+response = await response.json();
 
-    let response = await fetch(URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-    response = await response.json();
+
     if (!response?.candidates?.[0]?.content?.parts?.[0]?.text) {
       console.log("Invalid response:", response);
       setResult(["Error: API returned nothing"]);
